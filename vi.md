@@ -64,59 +64,58 @@ Dưới đây là những gì kết hợp được trong các tuỳ chọn như 
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
-##5. Never Lose Track of a Commit
+##5. đừng bao giờ mất dấu một Commit
 
-Let’s say you committed something you didn’t want to and ended up doing a hard reset to come back to your previous state. Later, you realize you lost some other information in the process and want to get it back, or at least view it. This is where ```git reflog``` can help.
+Giả sử bạn đã commit một vài thứ mà bạn không muốn và cuối cùng bạn phải thực hiện thiết lập lại tương đối khó khăn để trở về trạng thái trước đó. Một lúc sau, bạn nhận ra là bạn đánh mất một vài thông tin trong quá trình thực hiện và muốn lấy nó lại hoặc ít nhất là xem lại nó. Đây là nơi mà ```git reflog``` có thể giúp bạn.
 
-A simple ```git log``` shows you the latest commit, its parent, its parent’s parent, and so on. However, ```git reflog``` is a list of commits that the head was pointed to. Remember that it’s local to your system; it’s not a part of your repository and not included in pushes or merges.
+Đơn giản là ```git log``` hiển thị cho bạn lần commit gần nhất, lần cha của nó, lần cha của cha nó và nhiều hơn thế. Tuy nhiên, ```git reflog``` lại là danh sách các commit mà người đứng đầu đã chỉ ra. Hãy nhớ rằng nó chỉ tồn tại trên hệ thống của bạn; nó không phải là 1 phần của repository và nó không nằm trong những thao tác push hay merge.
 
-If I run ```git log```, I get the commits that are a part of my repository:
+Nếu tôi thực hiện lệnh ```git log```, Tôi sẽ nhận được các commit mà đó là 1 phần trong repository của tôi:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946446git-ninja-04.png)
 
-However, a ```git reflog``` shows a commit (```b1b0ee9 – HEAD@{4}```) that was lost when I did a hard reset:
+Tuy nhiên , lệnh ```git reflog``` hiển thị một commit (```b1b0ee9 – HEAD@{4}```) mà đã bị mất khi tôi thực hiện việc hard reset:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946447git-ninja-05.png)
 
-##6. Staging Parts of a Changed File for a Commit
+##6. Phân loại các phần của một file đã được thay đổi cho một Commit
 
-It is generally a good practice to make feature-based commits, that is, each commit must represent a feature or a bug fix. Consider what would happen if you fixed two bugs, or added multiple features without committing the changes. In such a situation situation, you could put the changes in a single commit. But there is a better way: Stage the files individually and commit them separately.
+Nói chung đây là một ví dụ tốt để thực hiện các commit dựa trên các tính năng, đó là, mỗi commit phải đại diện cho 1 tính hoặc hoặc 1 sửa lỗi nào đó. Hãy xem xét điều gì sẽ xảy ra nếu bạn sửa 2 lỗi, hoặc thêm nhiều tính năng mà không commit những thay đổi đó.Trong tình huống như vậy, bạn có thể đặt những thay đổi vào chỉ một commit. Nhưng đây mới là cách tốt nhất: Sắp xếp các file riêng lẻ, commit chúng một cách riêng biệt.
 
-Let’s say you’ve made multiple changes to a single file and want them to appear in separate commits. In that case, we add files by prefixing ```-p``` to our add commands.
+Giả sử bạn đã thực hiện nhiều thay đổi trên 1 file duy nhất và muốn chúng xuất hiện ở các commit riêng biệt.Trong trường hợp này, chúng tôi thêm các file bằng các tiền tố ```-p``` vào các câu lệnh của chúng tôi.
 
 ```
 
 git add -p [file_name]
 
 ```
-
-Let’s try to demonstrate the same. I have added three new lines to ```file_name``` and I want only the first and third lines to appear in my commit. Let’s see what a ```git diff``` shows us.
+Hãy cùng chứng minh điều tương tự. Tôi có thêm 3 dòng mới vào ```file_name``` và tôi muốn chỉ dòng đầu và dòng 3 xuất hiện trong commit của tôi. Hãy xem ```git_diff``` hiển thị cho ta những gì.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946449git-ninja-06.png)
 
-And let’s see what happes when we prefix a ```-p``` to our ```add``` command.
+và hãy xem điều gì xảy ra khi chúng tôi thêm tiền tố  ```-p``` vào lệnh ```add``` của chúng tôi.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946450git-ninja-07.png)
 
-It seems that Git assumed that all the changes were a part of the same idea, thereby grouping it into a single hunk. You have the following options:
+Dường như Git cho rằng tất cả các thay đổi đều là 1 phần của cùng một ý tưởng, do đó nó nhóm lại thành 1 phần lớn.Bạn phải tuân theo các option sau:
 
-* Enter y to stage that hunk
-* Enter n to not stage that hunk
-* Enter e to manually edit the hunk
-* Enter d to exit or go to the next file.
-* Enter s to split the hunk.
+* Nhập y để thực thi trên nhóm đó
+* Nhập n để không thực thi trên nhóm đó
+* Nhập e để thực hiện các thay đổi thủ công cho nhóm đó
+* Nhập d để thoát hoặc đi tới file tiếp theo
+* Nhập s để tách nhóm đó ra.
 
-In our case, we definitely want to split it into smaller parts to selectively add some and ignore the rest.
+Trong trường hợp của chúng tôi, chúng tôi chắc chắn là muốn phân tách thành các phần nhỏ hơn để chọn lọc một số thay đổi và bỏ qua các phần còn lại.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946452git-ninja-08.png)
 
-As you can see, we have added the first and third lines and ignored the second. You can then view the status of the repository and make a commit.
+Bạn có thể thấy, chúng tôi đã thêm dòng đầu và dòng 3, bỏ qua dòng thứ 2.Bạn có thể tiếp tục xem trạng thái của repository và tạo các commit. 
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946454git-ninja-09.png)
 
-##7. Squash Multiple Commits
+##7. Tập hợp nhiều Commits
 
-When you submit your code for review and create a pull request (which happens often in open source projects), you might be asked to make a change to your code before it’s accepted. You make the change, only to be asked to change it yet again in the next review. Before you know it, you have a few extra commits. Ideally, you could squash them into one using the ```rebase``` command.
+Khi bạn submit code của bạn để xem xét và tạo pull request (điều thường thấy ở các dự án mã nguồn mở),  bạn có thể được yêu cầu thay đổi các mã của mình trước khi nó được chấp nhận. Bạn tạo ra các thay đổi, chỉ khi được yêu cầu thay đổi nó một lần nữa trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có một vài commit bổ sung. Ý tưởng là, bạn có thể tập hợp chúng thành một sử dụng lệnh ```rebase```.
 
 ```
 
@@ -124,7 +123,7 @@ git rebase -i HEAD~[number_of_commits]
 
 ```
 
-If you want to squash the last two commits, the command that you run is the following.
+Nếu bạn muốn tập hợp 2 commit gần nhất, câu lệnh mà bạn chạy sẽ như này.
 
 ```
 
@@ -132,17 +131,17 @@ git rebase -i HEAD~2
 
 ```
 
-On running this command, you are taken to an interactive interface listing the commits and asking you which ones to squash. Ideally, you ```pick``` the latest commit and ```squash``` the old ones.
+Khi chạy lệnh này, bạn được chuyển tới giao diện tương tác với danh sách các commit và hỏi bạn những commi nào bạn muốn hợp lại. Ý tưởng là bạn ```pick``` commit cuối cùng và  ```squash``` với 1 cái cũ hơn.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946455git-ninja-10.png)
 
-You are then asked to provide a commit message to the new commit. This process essentially re-writes your commit history.
+Sau đó bạn sẽ được yêu cầu cung cấp một message cho commit mới. Bản chất của tiến trình này là ghi đè lên lịch sử commit của bạn.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
 
-##8. Stash Uncommitted Changes
+##8. Giấu những thay đổi không được commit
 
-Let’s say you are working on a certain bug or a feature, and you are suddenly asked to demonstrate your work. Your current work is not complete enough to be committed, and you can’t give a demonstration at this stage (without reverting the changes). In such a situation, ```git stash``` comes to the rescue. Stash essentially takes all your changes and stores them for further use. To stash your changes, you simply run the following-
+Giả sử bạn đang làm việc trên 1 lỗi hay 1 tính năng nhất định, và bạn đột nhiên được yêu cầu phải giải trình công việc của bạn. Công việc hiện tại của bạn chưa hoàn thiện đủ để commit, và bạn không thể giải trình tại giai đoạn này  (mà không cần hoàn nguyên các thay đổi). Trong trường hợp như vậy, ```git stash``` đến để giải cứu vấn đề này. Về cơ bản việc này lấy tất cả những thay đổi của bạn và lưu trữ chúng để sử dụng tiếp. Để giấu các thay đổi của bạn, đơn giản bạn chỉ cần chạy như sau-
 
 ```
 
@@ -150,7 +149,7 @@ git stash
 
 ```
 
-To check the list of stashes, you can run the following:
+Để kiểm tra danh sách được giấu đi, bạn có thể chạy lệnh:
 
 ```
 
@@ -160,7 +159,7 @@ git stash list
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946458git-ninja-12.png)
 
-If you want to un-stash and recover the uncommitted changes, you apply the stash:
+Nếu bạn không muốn giấu nữa và phục hồi các thay đổi chưa được commit, bạn áp dụng lệnh:
 
 ```
 
@@ -179,9 +178,9 @@ git stash apply stash@{2}
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946461git-ninja-13.png)
 
 
-##9. Check for Lost Commits
+##9. Kiểm tra các Commit bị mất
 
-Although ```reflog``` is one way of checking for lost commits, it’s not feasible in large repositories. That is when the ```fsck``` (file system check) command comes into play.
+Mặc dù ```reflog``` là một cách để kiểm tra các commit bị mất, nhưng nó lại không khả thi trong các repository lớn. Đây là khi mà lệnh ```fsck``` (kiểm tra hệ thống tập tin) vào cuộc chơi.
 
 ```
 
@@ -191,22 +190,21 @@ git fsck --lost-found
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946463git-ninja-14.png)
 
-Here you can see a lost commit. You can check the changes in the commit by running ```git show [commit_hash]``` or recover it by running ```git merge [commit_hash]```.
+Ở đây bạn có thể thấy commit bị mất. Bạn có thể kiểm tra những thay đổi trong commit bằng cách chạy lệnh ```git show [commit_hash]``` hoặc phục hồi chúng bằng lệnh ```git merge [commit_hash]```.
 
-```git fsck``` has an advantage over ```reflog```. Let’s say you deleted a remote branch and then cloned the repository. With ```fsck``` you can search for and recover the deleted remote branch.
+Lệnh ```git fsck``` có nhiều lợi thế hơn lệnh ```reflog```. Giả sử bạn xoá mất một nhánh remote và sau đó clone lại repository. với lệnh ```fsck``` bạn có thể tìm kiếm và phục hồi nhánh từ xa mà bạn đã xoá.
 
 
-##10. Cherry Pick
+##10. Lấp liếm bằng chứng (Lỗi suy luận về bằng chứng không đầy đủ)
 
-I have saved the most elegant Git command for the last. The ```cherry-pick``` command is by far my favorite Git command, because of its literal meaning as well as its utility!
+Tôi đã lưu lại lệnh Git nguyên vẹn nhất cho lần cuối cùng. Và lệnh ```cherry-pick``` là lệnh mà tôi yêu thích nhất, bởi vì cả nghĩa đen cũng như nghĩa bóng đều tốt như lợi ích nó mang lại!
+Trong các điều khoản đơn giản nhất, lệnh ```cherry-pick``` sẽ lấy một commit từ 1 nhánh khác và merge nó với nhánh hiện tại của bạn. Nếu bạn đang làm việc theo kiểu song song trên 2 hay nhiều nhánh 1 lúc, bạn có thể nhận thấy 1 lỗi tồn tại trên tất cả các nhánh. Nếu bạn giải quyết nó trên 1 nhánh, bạn cần lấp liếm nó vào các nhánh khác, mà không gặp rắc rối với các file khắc hoặc commit khác.
 
-In the simplest of terms, ```cherry-pick``` is picking a single commit from a different branch and merging it with your current one. If you are working in a parallel fashion on two or more branches, you might notice a bug that is present in all branches. If you solve it in one, you can cherry pick the commit into the other branches, without messing with other files or commits.
-
-Let’s consider a scenario where we can apply this. I have two branches and I want to ```cherry-pick``` the commit ```b20fd14: Cleaned junk``` into another one.
+Hãy xem xét 1 kịch bản mà chúng ta có thể áp dụng điều này. Tôi có 2 nhanánh và tôi muốn ```cherry-pick``` cái commit  ```b20fd14: Cleaned junk``` vào một nhánh kia.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946465git-ninja-15.png)
 
-I switch to the branch into which I want to ```cherry-pick``` the commit, and run the following:
+Tôi chuyển sang nhánh mà tôi muốn ```cherry-pick``` cái commit ấy và chạy lệnh:
 
 ```
 
@@ -216,7 +214,7 @@ git cherry-pick [commit_hash]
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946467git-ninja-16.png)
 
-Although we had a clean ```cherry-pick``` this time, you should know that this command can often lead to conflicts, so use it with care.
+Mặc dù chúng tôi đã dọn sạch ```cherry-pick``` vừa nãy, bạn nên biết rằng lệnh này thường có thể dẫn đến xung đột, do đó, hãy sử dụng nó 1 cách cẩn thận.
 
 ##Kết luận
 
