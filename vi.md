@@ -6,17 +6,16 @@ Ghi chú: Một số lệnh trong bài viết này chứa cả 1 phần của l�
 
 ##1. Tự động hoàn thành trong Git
 
-Nếu bạn chạy những lệnh Git thông qua các dòng lệnh, 
-If you run Git commands through the command line, it’s a tiresome task to type in the commands manually every single time. To help with this, you can enable auto completion of Git commands within a few minutes.
+Nếu bạn chạy những lệnh Git thông qua các dòng lệnh, đó là 1 nhiệm vụ thực sự mệt mỏi khi bạn phải gõ các lệnh bằng tay mỗi lần thực hiện. Để giúp cho việc này, bạn có thể bật tính năng tự động hoàn thành các câu lệnh Git chỉ trong 1 vài phút.
 
-To get the script, run the following in a Unix system:
+Để thực hiện việc này, thực hiện các thao tác sau trên hệ thống Unix:
 
 ```
 cd ~
 curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 ```
 
-Next, add the following lines to your ```~/.bash_profile``` file:
+Tiếp theo, thêm vào file ```~/.bash_profile``` các dòng lệnh sau:
 
 ```
 if [ -f ~/.git-completion.bash ]; then
@@ -24,11 +23,11 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 ```
 
-Although I have mentioned this earlier, I can not stress it enough: If you want to use the features of Git fully, you should definitely shift to the command line interface!
+Mặc dù tôi đã đề cập điều này trước đó, tôi vẫn chưa nhấn mạnh đủ về nó: Nếu bạn muốn sử dụng các tính năng của Git 1 cách đầy đủ, bạn chắc chắn phải chuyển sang giao diện dòng lệnh!
 
-##2. Ignoring Files in Git
+##2. Bỏ qua các tệp trong Git
 
-Are you tired of compiled files (like ```.pyc```) appearing in your Git repository? Or are you so fed up that you have added them to Git? Look no further, there is a way through which you can tell Git to ignore certain files and directories altogether. Simply create a file with the name ```.gitignore``` and list the files and directories that you don’t want Git to track. You can make exceptions using the exclamation mark(!).
+Bạn có cảm thấy mệt khi phải biên dịch các file như (like ```.pyc```) xuất hiện trong các repository trên Git của bạn? Hoặc bạn có chán tới mức thêm luôn cả chúng vào Git? Đừng nhìn xa quá, đây là 1 trong những cách thông qua đó bạn có thể gọi Git để bỏ qua một số tập tin và cả các thư mục nữa. Đơn giản là chỉ cần tạo 1 file có tên ```.gitignore``` và liệt kê danh sách các file hoặc thư mục mà bạn không muốn Git theo dõi. Bạn có thể thêm các ngoại lệ bằng cách sử dụng dấu chấm than(!).
 
 ```
 *.pyc
@@ -38,9 +37,9 @@ my_db_config/
 !main.pyc
 ```
 
-##3. Who Messed With My Code?
+##3. Ai đã sửa code của tôi?
 
-It’s the natural instinct of human beings to blame others when something goes wrong. If your production server is broke, it’s very easy to find out the culprit — just do a ```git blame```. This command shows you the author of every line in a file, the commit that saw the last change in that line, and the timestamp of the commit.
+Bản năng tự nhiên của con người là đổ lỗi cho người khác khi gặp điều gì đó bất ổn. Nếu máy chủ sản xuất gặp sự cố, rất dễ dàng để tìm ra thủ phạm — chỉ cần thực hiện một ```git blame```. Câu lệnh này sẽ hiển thị cho bạn tác giả mỗi dòng trong file, commit có sự thay đổi cuối cùng trên dòng đó và thời gian của commit đó.
 
 ```
 git blame [file_name]
@@ -49,15 +48,16 @@ git blame [file_name]
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946443git-ninja-01.png)
 
-And in the screenshot below, you can see how this command would look on a bigger repository:
+Và trong ảnh chụp màn hình dưới đây, bạn có thể thấy câu lệnh này sẽ thực hiện như thế nào trong 1 repository lớn hơn:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946441git-ninja-02.png)
 
-##4. Review History of the Repository
+##4. Xem lại lịch sử của Repository
 
-We had a look at the use of ```git log``` in a previous tutorial, however, there are three options that you should know about.
+Chúng tôi đã xem xét việc sử dụng ```git log``` trong bài hướng dẫn trước đó, tuy nhiên, ở đây là 3 option mà bạn nên biết.
 
 * ```--oneline``` – Compresses the information shown beside each commit to a reduced commit hash and the commit message, all shown in a single line.
+* ```--oneline``` – Hiển thị các thông tin được nén lại bên cạnh mỗi commit để giảm bớt các commit hash và các thông điệp, tất cả được hiển thị trên 1 dòng.
 * ```--graph``` – This option draws a text-based graphical representation of the history on the left hand side of the output. It’s of no use if you are viewing the history for a single branch.
 * ```--all``` – Shows the history of all branches.
 
@@ -219,6 +219,6 @@ git cherry-pick [commit_hash]
 
 Although we had a clean ```cherry-pick``` this time, you should know that this command can often lead to conflicts, so use it with care.
 
-##Conclusion
+##Kết luận
 
-With this, we come to the end of our list of tips that I think can help you take your Git skills to a new level. Git is the best out there and it can accomplish anything you can imagine. Therefore, always try to challenge yourself with Git. Chances are, you will end up learning something new!
+Với cái này, chúng tôi đã hoàn tất danh sách các mẹo mà tôi nghĩ có thể giúp bạn đưa kỹ năng của mình lên 1 tầm cao mới. Git là 1 công cụ tốt nhất hiện nay và nó có thể hoàn thành bất cứ thứ gì bạn có thể tưởng tượng. Vì vậy, hãy luôn cố gắng để thử thách bản thân mình với Git. Rất có thể, bạn sẽ hoàn thiện được việc học một vài thứ mới mẻ!
