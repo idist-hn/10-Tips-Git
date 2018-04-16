@@ -167,7 +167,7 @@ git stash apply
 
 ```
 
-In the last screenshot, you can see that each stash has an indentifier, a unique number (although we have only one stash in this case). In case you want to apply only selective stashes, you add the specific identifier to the ```apply``` command:
+Trong ảnh chụp màn hình cuối cùng, bạn có thể thấy với mỗi bản giấu có định danh, 1 số dung nhất (mặc dù chúng ta chỉ là 1 phần trong này) Trong trường hợp bạn chỉ muốn áp dụng các stash được chọn, bạn thêm định danh vào lệnh ```apply```:
 
 ```
 
@@ -197,7 +197,7 @@ Lệnh ```git fsck``` có nhiều lợi thế hơn lệnh ```reflog```. Giả s�
 
 ## 10. Lấp liếm bằng chứng (Lỗi suy luận về bằng chứng không đầy đủ)
 
-Tôi đã lưu lại lệnh Git nguyên vẹn nhất cho lần cuối cùng. Và lệnh ```cherry-pick``` là lệnh mà tôi yêu thích nhất, bởi vì cả nghĩa đen cũng như nghĩa bóng đều tốt như lợi ích nó mang lại!
+Tôi đã lưu lại lệnh Git nguyên vẹn nhất cho lần cuối cùng. Và lệnh ```cherry-pick``` là lệnh mà tôi yêu thích nhất, bởi vì ý nghĩa thực cũng như lợi ích nó mang lại!
 Trong các điều khoản đơn giản nhất, lệnh ```cherry-pick``` sẽ lấy một commit từ 1 nhánh khác và merge nó với nhánh hiện tại của bạn. Nếu bạn đang làm việc theo kiểu song song trên 2 hay nhiều nhánh 1 lúc, bạn có thể nhận thấy 1 lỗi tồn tại trên tất cả các nhánh. Nếu bạn giải quyết nó trên 1 nhánh, bạn cần lấp liếm nó vào các nhánh khác, mà không gặp rắc rối với các file khắc hoặc commit khác.
 
 Hãy xem xét 1 kịch bản mà chúng ta có thể áp dụng điều này. Tôi có 2 nhanánh và tôi muốn ```cherry-pick``` cái commit  ```b20fd14: Cleaned junk``` vào một nhánh kia.
