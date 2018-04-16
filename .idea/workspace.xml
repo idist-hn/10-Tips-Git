@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cad325f-09aa-4857-a67e-57b72ebb0871" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/vi.md" afterPath="$PROJECT_DIR$/vi.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +30,8 @@
         <entry file="file://$PROJECT_DIR$/vi.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="390">
-                <caret line="59" column="156" lean-forward="true" selection-start-line="59" selection-start-column="156" selection-end-line="59" selection-end-column="156" />
+              <first_editor relative-caret-position="331">
+                <caret line="63" column="52" lean-forward="false" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -142,12 +141,12 @@
       <updated>1523808071765</updated>
       <workItem from="1523808074295" duration="1967000" />
       <workItem from="1523814165880" duration="1433000" />
-      <workItem from="1523837869035" duration="1692000" />
+      <workItem from="1523837869035" duration="2720000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5092000" />
+    <option name="totallyTimeSpent" value="6120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="0" />
@@ -251,8 +250,8 @@
     <entry file="file://$PROJECT_DIR$/vi.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="390">
-            <caret line="59" column="156" lean-forward="true" selection-start-line="59" selection-start-column="156" selection-end-line="59" selection-end-column="156" />
+          <first_editor relative-caret-position="331">
+            <caret line="63" column="52" lean-forward="false" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
             <folding />
           </first_editor>
           <second_editor />

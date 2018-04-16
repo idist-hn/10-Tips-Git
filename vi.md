@@ -56,12 +56,11 @@ Và trong ảnh chụp màn hình dưới đây, bạn có thể thấy câu l�
 
 Chúng tôi đã xem xét việc sử dụng ```git log``` trong bài hướng dẫn trước đó, tuy nhiên, ở đây là 3 option mà bạn nên biết.
 
-* ```--oneline``` – Compresses the information shown beside each commit to a reduced commit hash and the commit message, all shown in a single line.
 * ```--oneline``` – Hiển thị các thông tin được nén lại bên cạnh mỗi commit để giảm bớt các commit hash và các thông điệp, tất cả được hiển thị trên 1 dòng.
-* ```--graph``` – This option draws a text-based graphical representation of the history on the left hand side of the output. It’s of no use if you are viewing the history for a single branch.
-* ```--all``` – Shows the history of all branches.
+* ```--graph``` – Option này rút ra và vẽ lại một biểu đồ dựa trên một lịch sử ở bên trái của đầu ra. Nó không được sử dụng nếu bạn đang muốn xem lịch sử của chỉ 1 nhánh.
+* ```--all``` – Hiển thị tất cả lịch sử của tất cả các nhánh.
 
-Here’s what a combination of the options looks like:
+Dưới đây là những gì kết hợp được trong các tuỳ chọn như sau:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
