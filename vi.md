@@ -1,10 +1,10 @@
-#10 mẹo nhỏ để giúp nâng cao kỹ năng sử dụng Git của bạn
+# 10 mẹo nhỏ để giúp nâng cao kỹ năng sử dụng Git của bạn
 
 Gần đây chúng tôi đã xuất bản một số bài hướng dẫn để giúp bạn làm quen với các khái niệm cơ bản của Git và sử dụng Git trong môi trường phát triển phần mềm. Các câu lệnh mà chúng ta đã đề cập trước đó đủ để giúp 1 lập trình viên tồn tại trong thế giới của Git. Trong bài viết này, chúng tôi sẽ cố gắng khám phá làm cách nào để quản lý thời gian của bạn 1 cách hiệu quả và tận dụng cách tính năng mà git đã cung cấp.
 
 Ghi chú: Một số lệnh trong bài viết này chứa cả 1 phần của lệnh trong các dấu ngoặc vuông (ví dụ thêm -p [file_name]). Trong các ví dụ, bạn nên chèn thêm các số cần thiết, định danh, ví dụ như không cần có dấu ngoặc vuông.
 
-##1. Tự động hoàn thành trong Git
+## 1. Tự động hoàn thành trong Git
 
 Nếu bạn chạy những lệnh Git thông qua các dòng lệnh, đó là 1 nhiệm vụ thực sự mệt mỏi khi bạn phải gõ các lệnh bằng tay mỗi lần thực hiện. Để giúp cho việc này, bạn có thể bật tính năng tự động hoàn thành các câu lệnh Git chỉ trong 1 vài phút.
 
@@ -25,7 +25,7 @@ fi
 
 Mặc dù tôi đã đề cập điều này trước đó, tôi vẫn chưa nhấn mạnh đủ về nó: Nếu bạn muốn sử dụng các tính năng của Git 1 cách đầy đủ, bạn chắc chắn phải chuyển sang giao diện dòng lệnh!
 
-##2. Bỏ qua các tệp trong Git
+## 2. Bỏ qua các tệp trong Git
 
 Bạn có cảm thấy mệt khi phải biên dịch các file như (like ```.pyc```) xuất hiện trong các repository trên Git của bạn? Hoặc bạn có chán tới mức thêm luôn cả chúng vào Git? Đừng nhìn xa quá, đây là 1 trong những cách thông qua đó bạn có thể gọi Git để bỏ qua một số tập tin và cả các thư mục nữa. Đơn giản là chỉ cần tạo 1 file có tên ```.gitignore``` và liệt kê danh sách các file hoặc thư mục mà bạn không muốn Git theo dõi. Bạn có thể thêm các ngoại lệ bằng cách sử dụng dấu chấm than(!).
 
@@ -37,7 +37,7 @@ my_db_config/
 !main.pyc
 ```
 
-##3. Ai đã sửa code của tôi?
+## 3. Ai đã sửa code của tôi?
 
 Bản năng tự nhiên của con người là đổ lỗi cho người khác khi gặp điều gì đó bất ổn. Nếu máy chủ sản xuất gặp sự cố, rất dễ dàng để tìm ra thủ phạm — chỉ cần thực hiện một ```git blame```. Câu lệnh này sẽ hiển thị cho bạn tác giả mỗi dòng trong file, commit có sự thay đổi cuối cùng trên dòng đó và thời gian của commit đó.
 
@@ -52,7 +52,7 @@ Và trong ảnh chụp màn hình dưới đây, bạn có thể thấy câu l�
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946441git-ninja-02.png)
 
-##4. Xem lại lịch sử của Repository
+## 4. Xem lại lịch sử của Repository
 
 Chúng tôi đã xem xét việc sử dụng ```git log``` trong bài hướng dẫn trước đó, tuy nhiên, ở đây là 3 option mà bạn nên biết.
 
@@ -64,7 +64,7 @@ Dưới đây là những gì kết hợp được trong các tuỳ chọn như 
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
-##5. đừng bao giờ mất dấu một Commit
+## 5. đừng bao giờ mất dấu một Commit
 
 Giả sử bạn đã commit một vài thứ mà bạn không muốn và cuối cùng bạn phải thực hiện thiết lập lại tương đối khó khăn để trở về trạng thái trước đó. Một lúc sau, bạn nhận ra là bạn đánh mất một vài thông tin trong quá trình thực hiện và muốn lấy nó lại hoặc ít nhất là xem lại nó. Đây là nơi mà ```git reflog``` có thể giúp bạn.
 
@@ -78,7 +78,7 @@ Tuy nhiên , lệnh ```git reflog``` hiển thị một commit (```b1b0ee9 – H
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946447git-ninja-05.png)
 
-##6. Phân loại các phần của một file đã được thay đổi cho một Commit
+## 6. Phân loại các phần của một file đã được thay đổi cho một Commit
 
 Nói chung đây là một ví dụ tốt để thực hiện các commit dựa trên các tính năng, đó là, mỗi commit phải đại diện cho 1 tính hoặc hoặc 1 sửa lỗi nào đó. Hãy xem xét điều gì sẽ xảy ra nếu bạn sửa 2 lỗi, hoặc thêm nhiều tính năng mà không commit những thay đổi đó.Trong tình huống như vậy, bạn có thể đặt những thay đổi vào chỉ một commit. Nhưng đây mới là cách tốt nhất: Sắp xếp các file riêng lẻ, commit chúng một cách riêng biệt.
 
@@ -113,7 +113,7 @@ Bạn có thể thấy, chúng tôi đã thêm dòng đầu và dòng 3, bỏ qu
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946454git-ninja-09.png)
 
-##7. Tập hợp nhiều Commits
+## 7. Tập hợp nhiều Commits
 
 Khi bạn submit code của bạn để xem xét và tạo pull request (điều thường thấy ở các dự án mã nguồn mở),  bạn có thể được yêu cầu thay đổi các mã của mình trước khi nó được chấp nhận. Bạn tạo ra các thay đổi, chỉ khi được yêu cầu thay đổi nó một lần nữa trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có một vài commit bổ sung. Ý tưởng là, bạn có thể tập hợp chúng thành một sử dụng lệnh ```rebase```.
 
@@ -139,7 +139,7 @@ Sau đó bạn sẽ được yêu cầu cung cấp một message cho commit mớ
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
 
-##8. Giấu những thay đổi không được commit
+## 8. Giấu những thay đổi không được commit
 
 Giả sử bạn đang làm việc trên 1 lỗi hay 1 tính năng nhất định, và bạn đột nhiên được yêu cầu phải giải trình công việc của bạn. Công việc hiện tại của bạn chưa hoàn thiện đủ để commit, và bạn không thể giải trình tại giai đoạn này  (mà không cần hoàn nguyên các thay đổi). Trong trường hợp như vậy, ```git stash``` đến để giải cứu vấn đề này. Về cơ bản việc này lấy tất cả những thay đổi của bạn và lưu trữ chúng để sử dụng tiếp. Để giấu các thay đổi của bạn, đơn giản bạn chỉ cần chạy như sau-
 
@@ -178,7 +178,7 @@ git stash apply stash@{2}
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946461git-ninja-13.png)
 
 
-##9. Kiểm tra các Commit bị mất
+## 9. Kiểm tra các Commit bị mất
 
 Mặc dù ```reflog``` là một cách để kiểm tra các commit bị mất, nhưng nó lại không khả thi trong các repository lớn. Đây là khi mà lệnh ```fsck``` (kiểm tra hệ thống tập tin) vào cuộc chơi.
 
@@ -195,7 +195,7 @@ git fsck --lost-found
 Lệnh ```git fsck``` có nhiều lợi thế hơn lệnh ```reflog```. Giả sử bạn xoá mất một nhánh remote và sau đó clone lại repository. với lệnh ```fsck``` bạn có thể tìm kiếm và phục hồi nhánh từ xa mà bạn đã xoá.
 
 
-##10. Lấp liếm bằng chứng (Lỗi suy luận về bằng chứng không đầy đủ)
+## 10. Lấp liếm bằng chứng (Lỗi suy luận về bằng chứng không đầy đủ)
 
 Tôi đã lưu lại lệnh Git nguyên vẹn nhất cho lần cuối cùng. Và lệnh ```cherry-pick``` là lệnh mà tôi yêu thích nhất, bởi vì cả nghĩa đen cũng như nghĩa bóng đều tốt như lợi ích nó mang lại!
 Trong các điều khoản đơn giản nhất, lệnh ```cherry-pick``` sẽ lấy một commit từ 1 nhánh khác và merge nó với nhánh hiện tại của bạn. Nếu bạn đang làm việc theo kiểu song song trên 2 hay nhiều nhánh 1 lúc, bạn có thể nhận thấy 1 lỗi tồn tại trên tất cả các nhánh. Nếu bạn giải quyết nó trên 1 nhánh, bạn cần lấp liếm nó vào các nhánh khác, mà không gặp rắc rối với các file khắc hoặc commit khác.
@@ -216,6 +216,6 @@ git cherry-pick [commit_hash]
 
 Mặc dù chúng tôi đã dọn sạch ```cherry-pick``` vừa nãy, bạn nên biết rằng lệnh này thường có thể dẫn đến xung đột, do đó, hãy sử dụng nó 1 cách cẩn thận.
 
-##Kết luận
+## Kết luận
 
 Với cái này, chúng tôi đã hoàn tất danh sách các mẹo mà tôi nghĩ có thể giúp bạn đưa kỹ năng của mình lên 1 tầm cao mới. Git là 1 công cụ tốt nhất hiện nay và nó có thể hoàn thành bất cứ thứ gì bạn có thể tưởng tượng. Vì vậy, hãy luôn cố gắng để thử thách bản thân mình với Git. Rất có thể, bạn sẽ hoàn thiện được việc học một vài thứ mới mẻ!
