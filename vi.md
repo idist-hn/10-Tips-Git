@@ -8,7 +8,7 @@ Ghi chú: Một số lệnh trong bài viết này chứa cả 1 phần của l�
 
 Nếu bạn chạy những lệnh Git thông qua các dòng lệnh, đó là 1 nhiệm vụ thực sự mệt mỏi khi bạn phải gõ các lệnh bằng tay mỗi lần thực hiện. Để giúp cho việc này, bạn có thể bật tính năng tự động hoàn thành các câu lệnh Git chỉ trong 1 vài phút.
 
-Để thực hiện việc này, thực hiện các thao tác sau trên hệ thống Unix:
+Để thực hiện việc này, thực hiện các thao tác sau trên hệ điều hành Unix:
 
 ```
 cd ~
@@ -37,7 +37,7 @@ my_db_config/
 !main.pyc
 ```
 
-## 3. Ai đã sửa code của tôi?
+## 3. Ai đã làm rối code của tôi?
 
 Bản năng tự nhiên của con người là đổ lỗi cho người khác khi gặp điều gì đó bất ổn. Nếu máy chủ sản xuất gặp sự cố, rất dễ dàng để tìm ra thủ phạm — chỉ cần thực hiện một ```git blame```. Câu lệnh này sẽ hiển thị cho bạn tác giả mỗi dòng trong file, commit có sự thay đổi cuối cùng trên dòng đó và thời gian của commit đó.
 
